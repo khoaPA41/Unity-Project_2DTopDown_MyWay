@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Axe
+  - Item
+  - Wood
+  - Enemy
+  - Bullet
+  - GoldOre
+  - IronOre
+  - CopperOre
+  - Tree
+  - Ore
+  - Tool
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - ForceGround
+  - Wall
+  - Tree
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Layer 1
+  - Layer 2
+  - Layer 3
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3748615843
+    locked: 0
+  - name: Water
+    uniqueID: 2834147557
+    locked: 0
+  - name: Ground_0
+    uniqueID: 3581605415
+    locked: 0
+  - name: Ground_1
+    uniqueID: 2425651459
+    locked: 0
+  - name: Ground_2
+    uniqueID: 4250941897
+    locked: 0
+  - name: Ground_3
+    uniqueID: 4189426099
+    locked: 0
+  - name: Ground_4
+    uniqueID: 2147930427
+    locked: 0
+  - name: ShadowGround
+    uniqueID: 3063700543
+    locked: 0
+  - name: Static
+    uniqueID: 3479963403
+    locked: 0
+  - name: BuildingBehind
+    uniqueID: 1011793593
+    locked: 0
+  - name: Wall
+    uniqueID: 1969158279
+    locked: 0
+  - name: Props
+    uniqueID: 1682500955
+    locked: 0
+  - name: Shadow
+    uniqueID: 1469234149
+    locked: 0
+  - name: Roof
+    uniqueID: 2281135681
+    locked: 0
+  - name: BuildingFront
+    uniqueID: 1143880735
+    locked: 0
+  - name: Object
+    uniqueID: 2051162051
+    locked: 0
+  - name: FrontGround
+    uniqueID: 4226762443
+    locked: 0
+  m_RenderingLayers:
+  - Default
