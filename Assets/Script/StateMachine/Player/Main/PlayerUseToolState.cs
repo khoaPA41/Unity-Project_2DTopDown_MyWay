@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerUseToolState : PlayerBaseState
@@ -7,14 +6,21 @@ public class PlayerUseToolState : PlayerBaseState
     readonly int AxeBlendTreeHash = Animator.StringToHash("Axe");
     readonly int CrushBlendTreeHash = Animator.StringToHash("Crush");
     readonly int SwordBlendTreeHash = Animator.StringToHash("Sword");
-
-    public PlayerUseToolState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+    string type = "";
+    string name = "";
+    public PlayerUseToolState(PlayerStateMachine playerStateMachine, string type, string name) : base(playerStateMachine)
     {
+        this.type = type;
+        this.name = name;
     }
 
     public override void Enter()
     {
         AnimationBaseType();
+        if (type == "Seed")
+        {
+            playerStateMachine.PlayerFarmer.PlantSeed(name, playerStateMachine.prevDirection);
+        }
     }
 
     public override void Tick(float deltaTime)
@@ -60,24 +66,9 @@ public class PlayerUseToolState : PlayerBaseState
 
     void AnimationBaseType()
     {
-        if (string.Equals(playerStateMachine.toolType, "Axe", StringComparison.OrdinalIgnoreCase))
+        if (type != "" && (type == "Axe" || type == "Crush" || type == "Sword"))
         {
-            playerStateMachine.Animator.CrossFadeInFixedTime(AxeBlendTreeHash, playerStateMachine.AnimatorCrossFade);
-        }
-
-        if (string.Equals(playerStateMachine.toolType, "Crush", StringComparison.OrdinalIgnoreCase))
-        {
-            playerStateMachine.Animator.CrossFadeInFixedTime(CrushBlendTreeHash, playerStateMachine.AnimatorCrossFade);
-        }
-
-        if (string.Equals(playerStateMachine.toolType, "Sword", StringComparison.OrdinalIgnoreCase))
-        {
-            playerStateMachine.Animator.CrossFadeInFixedTime(SwordBlendTreeHash, playerStateMachine.AnimatorCrossFade);
-        }
-
-        if (string.Equals(playerStateMachine.toolType, "", StringComparison.OrdinalIgnoreCase))
-        {
-            playerStateMachine.ReturnLocomotion();
+            playerStateMachine.Animator.CrossFadeInFixedTime(type, playerStateMachine.AnimatorCrossFade);
         }
     }
 

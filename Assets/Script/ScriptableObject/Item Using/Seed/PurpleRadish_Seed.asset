@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4b719013073194d8b6a1112f9c8434, type: 3}
+  m_Name: PurpleRadish_Seed
+  m_EditorClassIdentifier: Assembly-CSharp::Seed
+  type: Seed
+  itemName: PurpleRadish_Seed
+  maxStack: 12
+  itemSprite: {fileID: -2625790909998127553, guid: a2d7cecde9a3ba1498ae4e22c59ce695,
+    type: 3}
+  timeToGrow: 2

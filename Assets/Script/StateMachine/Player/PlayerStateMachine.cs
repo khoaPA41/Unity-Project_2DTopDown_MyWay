@@ -15,6 +15,8 @@ public class PlayerStateMachine : StateMachine
     [Header("Physic For Interact")]
     [field: SerializeField] public GameObject ToolBoxObject { get; private set; }
     [field: SerializeField] public float OffsetBaseDirection { get; private set; }
+    [field: SerializeField] public PlayerFarmer PlayerFarmer { get; private set; }
+
 
     [Header("Animation")]
     [field: SerializeField] public Animator Animator { get; private set; }
@@ -31,6 +33,7 @@ public class PlayerStateMachine : StateMachine
 
 
     public string toolType;
+    public string toolName;
     public string currentToolType { get; set; } = "";
 
     void Start()

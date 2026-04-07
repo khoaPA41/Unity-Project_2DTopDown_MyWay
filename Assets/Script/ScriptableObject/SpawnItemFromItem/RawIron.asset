@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4352b50ad81fe4d84cfa7b55191be9, type: 3}
   m_Name: RawIron
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  prefabsToSpawn: {fileID: 5982992234467873999, guid: 9597c33225a341141a416bed02768752,
-    type: 3}
+  prefabsToSpawn:
+  - {fileID: 5982992234467873999, guid: 9597c33225a341141a416bed02768752, type: 3}

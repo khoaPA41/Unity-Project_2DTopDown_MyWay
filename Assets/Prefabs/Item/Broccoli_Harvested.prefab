@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1061505228089908306
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 564199127646969828, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727773126336310507, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1035154356, guid: a2d7cecde9a3ba1498ae4e22c59ce695,
+        type: 3}
+    - target: {fileID: 7234148056267987524, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Name
+      value: Broccoli_Harvested
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234871765140158948, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: valueItem
+      value: 
+      objectReference: {fileID: 11400000, guid: 48cc076ac1a13ca489f9e9f41762d876,
+        type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 8044017998925481304, guid: edb250799fcb5404a8025ef3c79d5cc0, type: 3}
+    - {fileID: 4663714744608362306, guid: edb250799fcb5404a8025ef3c79d5cc0, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: edb250799fcb5404a8025ef3c79d5cc0, type: 3}

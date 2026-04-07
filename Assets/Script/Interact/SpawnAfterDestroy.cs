@@ -23,7 +23,10 @@ public class SpawnAfterDestroy : MonoBehaviour
 
     public void SpawnPrefabs()
     {
-        ObjectPooling objectPooling = GameObject.FindGameObjectWithTag("Wood").GetComponent<ObjectPooling>();
-        objectPooling.GetObjectPooled(scriptableObject.prefabsToSpawn.name, transform.position);
+        ObjectPooling objectPooling = GameObject.FindGameObjectWithTag("Item").GetComponent<ObjectPooling>();
+        foreach (var item in scriptableObject.prefabsToSpawn)
+        {
+            objectPooling.GetObjectPooled(item.name, transform.position);
+        }
     }
 }

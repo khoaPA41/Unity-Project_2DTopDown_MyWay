@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Food : ValueItem
 {
-    int satiety = 3;
+    public int satiety = 3;
 
     public override void UseItem(GameObject player)
     {

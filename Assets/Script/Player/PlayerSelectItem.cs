@@ -26,6 +26,11 @@ public class PlayerSelectItem : MonoBehaviour
         currentIndex = selectIndex;
 
         UIManagers.Instance.ActiveSelectUIHotbar(prevIndex, currentIndex);
-        playerStateMachine.toolType = Inventories.Instance.inventoriesList[currentIndex].itemData.type;
+
+        if (Inventories.Instance.inventoriesList[currentIndex]?.itemData != null)
+        {
+            playerStateMachine.toolType = Inventories.Instance.inventoriesList[currentIndex].itemData.type;
+            playerStateMachine.toolName = Inventories.Instance.inventoriesList[currentIndex].itemData.itemName;
+        }
     }
 }

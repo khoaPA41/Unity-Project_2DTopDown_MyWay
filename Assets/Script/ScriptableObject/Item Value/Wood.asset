@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9aea1375d47b3499929252d887723d, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: Assembly-CSharp::ValueItem
-  type: 
+  type: Wood
   itemName: Wood
   maxStack: 15
   itemSprite: {fileID: -8230066881174583576, guid: 4ac1576b64179274b8918231edc10709,

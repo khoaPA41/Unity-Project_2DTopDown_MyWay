@@ -33,6 +33,11 @@ public class Interact : MonoBehaviour
             {
                 spawnItem.durability -= tool.efficiencyWood;
             }
+
+            if (collision.CompareTag("Vegetable"))
+            {
+                spawnItem.durability = 0;
+            }
         }
     }
 }

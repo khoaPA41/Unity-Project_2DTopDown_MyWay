@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4352b50ad81fe4d84cfa7b55191be9, type: 3}
   m_Name: RawGold
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  prefabsToSpawn: {fileID: 14045431296585431, guid: 1cfab3ba12abd64468eb64709310615f,
-    type: 3}
+  prefabsToSpawn:
+  - {fileID: 14045431296585431, guid: 1cfab3ba12abd64468eb64709310615f, type: 3}

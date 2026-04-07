@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9aea1375d47b3499929252d887723d, type: 3}
   m_Name: RawIron
   m_EditorClassIdentifier: Assembly-CSharp::ValueItem
+  type: Raw
   itemName: RawIron
   maxStack: 1
   itemSprite: {fileID: -7996195339173360645, guid: 2e545214097e0714cbdaa7c9088edc21,

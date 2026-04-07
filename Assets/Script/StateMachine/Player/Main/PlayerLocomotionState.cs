@@ -27,8 +27,11 @@ public class PlayerLocomotionState : PlayerBaseState
         }
         else
         {
-            playerStateMachine.prevDirection.x = Mathf.Sign(playerStateMachine.InputReader.Movement.x);
-            playerStateMachine.prevDirection.y = Mathf.Sign(playerStateMachine.InputReader.Movement.y);
+            if (playerStateMachine.InputReader.Movement.x != 0 || playerStateMachine.InputReader.Movement.y != 0)
+            {
+                playerStateMachine.prevDirection.x = playerStateMachine.InputReader.Movement.x;
+                playerStateMachine.prevDirection.y = playerStateMachine.InputReader.Movement.y;
+            }
 
             speed = playerStateMachine.Speed;
         }
@@ -71,7 +74,7 @@ public class PlayerLocomotionState : PlayerBaseState
     {
         if (playerStateMachine.InputReader.IsAttack)
         {
-            playerStateMachine.SwitchState(new PlayerUseToolState(playerStateMachine));
+            playerStateMachine.SwitchState(new PlayerUseToolState(playerStateMachine, playerStateMachine.toolType, playerStateMachine.toolName));
             //playerStateMachine.currentToolType
             return;
         }
