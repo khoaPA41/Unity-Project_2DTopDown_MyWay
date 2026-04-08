@@ -16,6 +16,9 @@ TagManager:
   - Ore
   - Tool
   - Vegetable
+  - Seed
+  - ItemPool
+  - Water
   layers:
   - Default
   - TransparentFX

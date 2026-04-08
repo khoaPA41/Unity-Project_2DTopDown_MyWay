@@ -3,17 +3,25 @@ using UnityEngine;
 public class SpawnAfterDestroy : MonoBehaviour
 {
     [SerializeField] Item scriptableObject;
+    [SerializeField] int durability = 20;
+
     PooledObject pooledObject;
-    public int durability = 20;
+
+    public int currentDurability { get; set; }
 
     void Start()
     {
         pooledObject = GetComponent<PooledObject>();
     }
 
+    private void OnEnable()
+    {
+        currentDurability = durability;
+    }
+
     void Update()
     {
-        if (durability <= 0)
+        if (currentDurability <= 0)
         {
             SpawnPrefabs();
             pooledObject.Release();
@@ -23,7 +31,7 @@ public class SpawnAfterDestroy : MonoBehaviour
 
     public void SpawnPrefabs()
     {
-        ObjectPooling objectPooling = GameObject.FindGameObjectWithTag("Item").GetComponent<ObjectPooling>();
+        ObjectPooling objectPooling = GameObject.FindGameObjectWithTag("ItemPool").GetComponent<ObjectPooling>();
         foreach (var item in scriptableObject.prefabsToSpawn)
         {
             objectPooling.GetObjectPooled(item.name, transform.position);

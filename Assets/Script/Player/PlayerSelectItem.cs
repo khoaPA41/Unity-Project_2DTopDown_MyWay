@@ -31,6 +31,7 @@ public class PlayerSelectItem : MonoBehaviour
         {
             playerStateMachine.toolType = Inventories.Instance.inventoriesList[currentIndex].itemData.type;
             playerStateMachine.toolName = Inventories.Instance.inventoriesList[currentIndex].itemData.itemName;
+            playerStateMachine.itemIndex = currentIndex;
         }
     }
 }

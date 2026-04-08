@@ -34,7 +34,8 @@ public class PlayerStateMachine : StateMachine
 
     public string toolType;
     public string toolName;
-    public string currentToolType { get; set; } = "";
+    public int itemIndex;
+    //public string currentToolType { get; set; } = "";
 
     void Start()
     {

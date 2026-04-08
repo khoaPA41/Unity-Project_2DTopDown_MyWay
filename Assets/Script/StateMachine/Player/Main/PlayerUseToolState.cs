@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerUseToolState : PlayerBaseState
 {
-
     readonly int AxeBlendTreeHash = Animator.StringToHash("Axe");
     readonly int CrushBlendTreeHash = Animator.StringToHash("Crush");
     readonly int SwordBlendTreeHash = Animator.StringToHash("Sword");
@@ -19,7 +18,8 @@ public class PlayerUseToolState : PlayerBaseState
         AnimationBaseType();
         if (type == "Seed")
         {
-            playerStateMachine.PlayerFarmer.PlantSeed(name, playerStateMachine.prevDirection);
+            GameObject seed = playerStateMachine.PlayerFarmer.PlantSeed(name, playerStateMachine.prevDirection);
+            Inventories.Instance.inventoriesList[playerStateMachine.itemIndex].itemData.UseItem(seed);
         }
     }
 
@@ -66,7 +66,7 @@ public class PlayerUseToolState : PlayerBaseState
 
     void AnimationBaseType()
     {
-        if (type != "" && (type == "Axe" || type == "Crush" || type == "Sword"))
+        if (type != "" && (type == "Axe" || type == "Crush" || type == "Sword" || type == "Watering"))
         {
             playerStateMachine.Animator.CrossFadeInFixedTime(type, playerStateMachine.AnimatorCrossFade);
         }

@@ -16,4 +16,4 @@ MonoBehaviour:
   itemName: Broccoli_Seed
   maxStack: 12
   itemSprite: {fileID: 157197925, guid: a2d7cecde9a3ba1498ae4e22c59ce695, type: 3}
-  timeToGrow: 2
+  timeToGrow: 3

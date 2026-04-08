@@ -23,20 +23,31 @@ public class Interact : MonoBehaviour
 
         if (tool != null)
         {
-            if (collision.CompareTag("Ore"))
+            if (tool.type == "Watering")
             {
-                spawnItem.durability -= tool.efficiencyOre;
+                if (collision.CompareTag("Seed"))
+                {
+                    SeedGrow seed = collision.gameObject.GetComponent<SeedGrow>();
+                    seed.watered++;
+                }
             }
-
-
-            if (collision.CompareTag("Tree"))
+            else
             {
-                spawnItem.durability -= tool.efficiencyWood;
-            }
+                if (collision.CompareTag("Ore"))
+                {
+                    spawnItem.currentDurability -= tool.efficiencyOre;
+                }
 
-            if (collision.CompareTag("Vegetable"))
-            {
-                spawnItem.durability = 0;
+
+                if (collision.CompareTag("Tree"))
+                {
+                    spawnItem.currentDurability -= tool.efficiencyWood;
+                }
+
+                if (collision.CompareTag("Vegetable"))
+                {
+                    spawnItem.currentDurability = 0;
+                }
             }
         }
     }

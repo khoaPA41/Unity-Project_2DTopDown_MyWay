@@ -11,8 +11,6 @@ public class Inventories : MonoBehaviour
     [SerializeField] UIManagers uIManagers;
 
     public int bagSize = 55;
-    //[SerializeField] int hotBotSize = 7;
-
 
     public List<InventorySlot> inventoriesList;
 

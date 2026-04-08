@@ -63,16 +63,51 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1005431526152487284, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Name
+      value: Seed
+      objectReference: {fileID: 0}
     - target: {fileID: 1727773126336310507, guid: edb250799fcb5404a8025ef3c79d5cc0,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1875528667, guid: a2d7cecde9a3ba1498ae4e22c59ce695,
+      objectReference: {fileID: 2120004163, guid: a2d7cecde9a3ba1498ae4e22c59ce695,
         type: 3}
     - target: {fileID: 3426988276567147592, guid: edb250799fcb5404a8025ef3c79d5cc0,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663714744608362306, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Name
+      value: Germinate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663714744608362306, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406390981446358378, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.09681151
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406390981446358378, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.112889655
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406390981446358378, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0020251535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406390981446358378, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.019477662
       objectReference: {fileID: 0}
     - target: {fileID: 6020149985315038767, guid: edb250799fcb5404a8025ef3c79d5cc0,
         type: 3}
@@ -105,10 +140,67 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1875528667, guid: a2d7cecde9a3ba1498ae4e22c59ce695,
+      objectReference: {fileID: 1294457220, guid: a2d7cecde9a3ba1498ae4e22c59ce695,
         type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8044017998925481304, guid: edb250799fcb5404a8025ef3c79d5cc0, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1005431526152487284, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2545922203959785453}
   m_SourcePrefab: {fileID: 100100000, guid: edb250799fcb5404a8025ef3c79d5cc0, type: 3}
+--- !u!1 &8523863048924909411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1005431526152487284, guid: edb250799fcb5404a8025ef3c79d5cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8916805025753402903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &2545922203959785453
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523863048924909411}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.001477316, y: -0.026098903}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.27, y: 0.13}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.13931787, y: 0.10780219}
+  m_EdgeRadius: 0

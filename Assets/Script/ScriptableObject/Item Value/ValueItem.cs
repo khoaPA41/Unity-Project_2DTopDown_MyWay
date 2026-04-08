@@ -8,7 +8,7 @@ public class ValueItem : ScriptableObject
     public int maxStack;
     public Sprite itemSprite;
 
-    public virtual void UseItem(GameObject player)
+    public virtual void UseItem(GameObject targetObject)
     {
         Debug.Log("Do Something!");
     }

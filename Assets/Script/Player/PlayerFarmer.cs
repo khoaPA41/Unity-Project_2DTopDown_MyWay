@@ -14,7 +14,7 @@ public class PlayerFarmer : MonoBehaviour
     [SerializeField] ObjectPooling getSeed;
 
 
-    public void PlantSeed(string seed, Vector2 playerDirection)
+    public GameObject PlantSeed(string seed, Vector2 playerDirection)
     {
         Vector3 targetPos = transform.position + (Vector3)(playerDirection * distanceInteract);
         Vector3Int cellPos = groundMap.WorldToCell(targetPos);
@@ -23,8 +23,9 @@ public class PlayerFarmer : MonoBehaviour
         {
             Debug.Log("Plant Succesfully");
             Vector3 plantPos = groundMap.GetCellCenterWorld(cellPos);
-            getSeed.GetObjectPooled(seed, plantPos);
+            return getSeed.GetObjectPooled(seed, plantPos).gameObject;
         }
+        return null;
     }
 
 }

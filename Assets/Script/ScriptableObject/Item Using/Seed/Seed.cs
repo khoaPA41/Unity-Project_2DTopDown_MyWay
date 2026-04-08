@@ -5,8 +5,9 @@ public class Seed : ValueItem
 {
     public int timeToGrow = 2;
 
-    public override void UseItem(GameObject player)
+    public override void UseItem(GameObject targetObject)
     {
-        base.UseItem(player);
+        BoxCollider2D seedCollider = targetObject.GetComponent<BoxCollider2D>();
+        seedCollider.enabled = false;
     }
 }
