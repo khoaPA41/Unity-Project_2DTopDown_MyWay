@@ -18,8 +18,7 @@ public class PlayerUseToolState : PlayerBaseState
         AnimationBaseType();
         if (type == "Seed")
         {
-            GameObject seed = playerStateMachine.PlayerFarmer.PlantSeed(name, playerStateMachine.prevDirection);
-            Inventories.Instance.inventoriesList[playerStateMachine.itemIndex].itemData.UseItem(seed);
+            GameObject seed = playerStateMachine.PlayerFarmer.PlantSeed(name, playerStateMachine.prevDirection, playerStateMachine.itemIndex);
         }
     }
 

@@ -45,6 +45,19 @@ public class Inventories : MonoBehaviour
         }
     }
 
+    public void SubtractItem(int index)
+    {
+        int currentQuantity = inventoriesList[index].stack - 1;
+        if (currentQuantity <= 0)
+        {
+            inventoriesList.RemoveAt(index);
+        }
+
+        inventoriesList[index].stack = currentQuantity;
+
+        UpdateUIAction?.Invoke();
+    }
+
     public void AddItem(ValueItem newItem, int amount)
     {
         if (inventoriesList.Count == 0) // new item => Add

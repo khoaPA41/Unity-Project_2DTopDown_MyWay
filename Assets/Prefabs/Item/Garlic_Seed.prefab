@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Seed
       objectReference: {fileID: 0}
+    - target: {fileID: 1005431526152487284, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Seed
+      objectReference: {fileID: 0}
     - target: {fileID: 1727773126336310507, guid: edb250799fcb5404a8025ef3c79d5cc0,
         type: 3}
       propertyPath: m_Sprite
@@ -151,7 +156,35 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2545922203959785453}
+    - targetCorrespondingSourceObject: {fileID: 1005431526152487284, guid: edb250799fcb5404a8025ef3c79d5cc0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5057740401542169449}
   m_SourcePrefab: {fileID: 100100000, guid: edb250799fcb5404a8025ef3c79d5cc0, type: 3}
+--- !u!61 &3510979330875284349 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5406390981446358378, guid: edb250799fcb5404a8025ef3c79d5cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8916805025753402903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4253101418129457493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4663714744608362306, guid: edb250799fcb5404a8025ef3c79d5cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8916805025753402903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5922896131224645686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2993908916139408929, guid: edb250799fcb5404a8025ef3c79d5cc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8916805025753402903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4ae8cfc3debf54c8d0bce70859456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PooledObject
 --- !u!1 &8523863048924909411 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1005431526152487284, guid: edb250799fcb5404a8025ef3c79d5cc0,
@@ -204,3 +237,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.13931787, y: 0.10780219}
   m_EdgeRadius: 0
+--- !u!114 &5057740401542169449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523863048924909411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56dacc40492042439234927a32cc956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeedGrow
+  germinateObject: {fileID: 4253101418129457493}
+  growObject: {fileID: 5750383374014235563, guid: b4daf19efa702f943b35ed2ae78c321d,
+    type: 3}
+  seedRelease: {fileID: 5922896131224645686}
+  seed: {fileID: 11400000, guid: acc3c73738fd0674b9685363c6f41b00, type: 2}
+  boxMain: {fileID: 3510979330875284349}
