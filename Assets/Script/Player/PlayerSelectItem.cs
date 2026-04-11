@@ -33,5 +33,11 @@ public class PlayerSelectItem : MonoBehaviour
             playerStateMachine.toolName = Inventories.Instance.inventoriesList[currentIndex].itemData.itemName;
             playerStateMachine.itemIndex = currentIndex;
         }
+        else
+        {
+            playerStateMachine.toolType = "";
+            playerStateMachine.toolName = "";
+            playerStateMachine.itemIndex = currentIndex;
+        }
     }
 }

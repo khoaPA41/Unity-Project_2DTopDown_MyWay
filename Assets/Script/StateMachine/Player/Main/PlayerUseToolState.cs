@@ -19,7 +19,10 @@ public class PlayerUseToolState : PlayerBaseState
         if (type == "Seed")
         {
             GameObject seed = playerStateMachine.PlayerFarmer.PlantSeed(name, playerStateMachine.prevDirection, playerStateMachine.itemIndex);
+            playerStateMachine.toolName = "";
+            playerStateMachine.toolType = "";
         }
+
     }
 
     public override void Tick(float deltaTime)

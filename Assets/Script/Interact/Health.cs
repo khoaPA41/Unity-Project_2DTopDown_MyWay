@@ -1,36 +1,23 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public class Health : Status
 {
     [SerializeField] GameObject GameOverPanel;
-    [SerializeField] Image healthUI;
-    [SerializeField] float maxHealth;
-
-    float currentHealth;
-
-    void Start()
-    {
-        currentHealth = maxHealth;
-        Debug.Log(currentHealth);
-    }
-
 
     void Update()
     {
-        if (currentHealth <= 0)
+        if (currentValue <= 0)
         {
-            //Time.timeScale = 0;
             GameOverPanel.SetActive(true);
         }
 
-        healthUI.fillAmount = currentHealth / maxHealth;
+        valueImage.fillAmount = currentValue / maxValue;
     }
 
 
     public void DealDame(int damage)
     {
-        currentHealth = Mathf.Max(currentHealth - damage, 0);
+        currentValue = Mathf.Max(currentValue - damage, 0);
 
     }
 
@@ -38,7 +25,7 @@ public class Health : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            currentHealth -= 5;
+            currentValue -= 5;
         }
     }
 

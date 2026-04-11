@@ -15,11 +15,26 @@ public class PlayerLocomotionState : PlayerBaseState
 
     public override void Enter()
     {
+
+
+
         playerStateMachine.Animator.CrossFadeInFixedTime(LocomotionBlendTreeHash, playerStateMachine.AnimatorCrossFade);
     }
 
     public override void Tick(float deltaTime)
     {
+
+        /*Active virtual box for plant*/
+        if (playerStateMachine.toolType == "Seed")
+        {
+            playerStateMachine.PlayerFarmer.ActiveVirtualBox(true);
+        }
+        else
+        {
+            playerStateMachine.PlayerFarmer.ActiveVirtualBox(false);
+        }
+
+        /*Movement*/
 
         if (playerStateMachine.InputReader.Movement == Vector2.zero)
         {

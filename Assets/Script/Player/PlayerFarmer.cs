@@ -8,20 +8,34 @@ public class PlayerFarmer : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] float distanceInteract;
+    [SerializeField] PlayerSelectItem seclectItem;
 
     [Header("Seed Object Pool")]
     [SerializeField] ObjectPooling getSeed;
 
+    [Header("UI")]
+    [SerializeField] GameObject virtualBox;
+
+    PlayerStateMachine playerStateMachine;
+    Vector3 targetPos;
+    Vector3Int cellPos;
+    Vector3 plantPos;
+
+    void Start()
+    {
+        playerStateMachine = GetComponent<PlayerStateMachine>();
+    }
+
+    void Update()
+    {
+        GetTheBoxPllant();
+    }
 
     public GameObject PlantSeed(string seed, Vector2 playerDirection, int index)
     {
-        Vector3 targetPos = transform.position + (Vector3)(playerDirection * distanceInteract);
-        Vector3Int cellPos = groundMap.WorldToCell(targetPos);
-
         if (groundMap.HasTile(cellPos))
         {
             Debug.Log("Plant Succesfully");
-            Vector3 plantPos = groundMap.GetCellCenterWorld(cellPos);
             PooledObject seedPoolObject = getSeed.GetObjectPooled(seed, plantPos);
             Inventories.Instance.inventoriesList[index].itemData.UseItem(seedPoolObject.gameObject);
             Inventories.Instance.SubtractItem(index);
@@ -30,4 +44,16 @@ public class PlayerFarmer : MonoBehaviour
         return null;
     }
 
+    public void GetTheBoxPllant()
+    {
+        targetPos = transform.position + (Vector3)(playerStateMachine.prevDirection * distanceInteract);
+        cellPos = groundMap.WorldToCell(targetPos);
+        plantPos = groundMap.GetCellCenterWorld(cellPos);
+        virtualBox.transform.position = plantPos;
+    }
+
+    public void ActiveVirtualBox(bool isActive)
+    {
+        virtualBox.SetActive(isActive);
+    }
 }
