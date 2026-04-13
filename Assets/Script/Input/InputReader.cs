@@ -7,7 +7,7 @@ public class InputReader : MonoBehaviour, PlayerInput.IPlayerActions
     public Vector2 Pointer { get; private set; }
     public bool IsAttack { get; private set; }
     public bool IsShooting { get; private set; }
-    public bool IsOpenUI { get; private set; } = false;
+    public event Action OpenUIAction;
 
     public event Action<int> SelectItemAction;
 
@@ -47,7 +47,7 @@ public class InputReader : MonoBehaviour, PlayerInput.IPlayerActions
     {
         if (context.started)
         {
-            IsOpenUI = true;
+            OpenUIAction?.Invoke();
         }
     }
 

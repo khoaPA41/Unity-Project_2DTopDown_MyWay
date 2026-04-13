@@ -14,46 +14,52 @@ public abstract class EnemyBaseState : State
         this.enemyStateMachine = enemyStateMachine;
     }
 
-    protected void Move()
+    protected void Move(float fixedDeltaTime)
     {
-        Vector2 motion = Vector2.MoveTowards(enemyStateMachine.Rigidbody2D.position,
-           target,
-           enemyStateMachine.Speed * Time.fixedDeltaTime
-           );
+        Vector2 currentPos = enemyStateMachine.Rigidbody2D.position;
 
-        float xDirToTarget = Mathf.Sign(target.x - enemyStateMachine.transform.position.x);
-        float yDirToTarget = Mathf.Sign(target.y - enemyStateMachine.transform.position.y);
-        direction.x = xDirToTarget;
+        // Calculate direction and movement delta 
 
-        if (motion.x != 0)
-        {
-            Vector2 dirX = new Vector2(Mathf.Sign(motion.x), 0f);
-            float castLength = Mathf.Abs(Mathf.Sign(motion.x)) + enemyStateMachine.SkinWidth;
+        direction = (target - currentPos).normalized;
+
+        Vector2 movementDelta = direction * enemyStateMachine.Speed * fixedDeltaTime;
+
+        // Handle collision X
+        if (Mathf.Abs(movementDelta.x) > 0.0001f)
+        {// Get diretion of movement delta not  direction
+            Vector2 dirX = new Vector2(Mathf.Sign(movementDelta.x), 0f);
+
+            float castLength = Mathf.Abs(movementDelta.x) + enemyStateMachine.SkinWidth;
+
             hit = enemyStateMachine.CheckLimit.Cast(dirX, castLength);
 
             if (hit.collider != null)
             {
                 float minDistance = hit.distance - enemyStateMachine.SkinWidth;
                 minDistance = Mathf.Max(0, minDistance);
-                motion = enemyStateMachine.Rigidbody2D.position + dirX * minDistance;
+                movementDelta.x = dirX.x * minDistance;
             }
         }
 
-        if (motion.y != 0)
+        // Handle collision Y
+        if (Mathf.Abs(movementDelta.y) > 0.0001f)
         {
-            Vector2 dirY = new Vector2(0, Mathf.Sign(motion.y));
-            float castLength = Mathf.Abs(Mathf.Sign(motion.y)) + enemyStateMachine.SkinWidth;
+            Vector2 dirY = new Vector2(0, Mathf.Sign(movementDelta.y));
+            float castLength = Mathf.Abs(movementDelta.y) + enemyStateMachine.SkinWidth;
             hit = enemyStateMachine.CheckLimit.Cast(dirY, castLength);
 
             if (hit.collider != null)
             {
                 float minDistance = hit.distance - enemyStateMachine.SkinWidth;
                 minDistance = Mathf.Max(0, minDistance);
-                motion = enemyStateMachine.Rigidbody2D.position + dirY * minDistance;
+                movementDelta.y = dirY.y * minDistance;
             }
         }
 
-        enemyStateMachine.Rigidbody2D.MovePosition(motion);
+
+        direction.x = movementDelta.x != 0 ? Mathf.Sign(movementDelta.x) : direction.x;
+        direction.y = movementDelta.y != 0 ? Mathf.Sign(movementDelta.y) : direction.y;
+        enemyStateMachine.Rigidbody2D.MovePosition(currentPos + movementDelta);
     }
 
     protected void TouchPosLimit()

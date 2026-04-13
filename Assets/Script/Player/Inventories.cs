@@ -50,7 +50,7 @@ public class Inventories : MonoBehaviour
         int currentQuantity = inventoriesList[index].stack - 1;
         if (currentQuantity <= 0)
         {
-            inventoriesList.RemoveAt(index);
+            inventoriesList[index].itemData = null;
         }
 
         inventoriesList[index].stack = currentQuantity;

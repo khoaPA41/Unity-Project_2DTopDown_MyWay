@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CheckLimit
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
 --- !u!114 &7489573281215660493
 MonoBehaviour:
   m_ObjectHideFlags: 0

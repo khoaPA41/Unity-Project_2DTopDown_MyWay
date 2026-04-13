@@ -32,7 +32,7 @@ public class EnemyChasingState : EnemyBaseState
     public override void PhysicTick(float fixedDeltatime)
     {
         target = enemyStateMachine.Player.transform.position;
-        Move();
+        Move(fixedDeltatime);
     }
 
     public override void Exit()

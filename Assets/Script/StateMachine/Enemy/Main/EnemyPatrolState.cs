@@ -24,12 +24,11 @@ public class EnemyPatrolState : EnemyBaseState
             return;
         }
         TouchPosLimit();
-
     }
 
     public override void PhysicTick(float fixedDeltatime)
     {
-        Move();
+        Move(fixedDeltatime);
         Flip();
     }
 

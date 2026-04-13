@@ -11,13 +11,13 @@ public class Health : Status
             GameOverPanel.SetActive(true);
         }
 
-        valueImage.fillAmount = currentValue / maxValue;
+        valueImage.fillAmount = (currentValue / maxValue);
     }
 
 
     public void DealDame(int damage)
     {
-        currentValue = Mathf.Max(currentValue - damage, 0);
+        currentValue = Mathf.Max(currentValue - damage, 0) * Time.deltaTime * speedToFill;
 
     }
 

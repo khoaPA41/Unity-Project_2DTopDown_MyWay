@@ -17,11 +17,14 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float OffsetBaseDirection { get; private set; }
     [field: SerializeField] public PlayerFarmer PlayerFarmer { get; private set; }
 
-
     [Header("Animation")]
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public float AnimatorCrossFade { get; private set; }
     [field: SerializeField] public float AnimatorDamping { get; private set; }
+
+    [Header("Status")]
+    [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public HungerBar HungerBar { get; private set; }
 
     [Header("Input")]
     [field: SerializeField] public InputReader InputReader { get; private set; }

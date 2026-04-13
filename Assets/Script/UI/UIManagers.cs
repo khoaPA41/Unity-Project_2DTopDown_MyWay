@@ -29,6 +29,8 @@ public class UIManagers : MonoBehaviour
     [Header("Hotbar UI")]
     [SerializeField] List<GameObject> hotbarObject;
 
+    [Header("Input")]
+    [SerializeField] InputReader input;
     int currentPanelIndex = 0;
 
     void Awake()
@@ -42,12 +44,26 @@ public class UIManagers : MonoBehaviour
         UpdateInventoryUI();
         inventories.UpdateUIAction += UpdateInventoryUI;
         //system.SetActive(false);
+        input.OpenUIAction += ActiveUISystem;
+    }
+
+    public void ActiveUISystem()
+    {
+        if (system.activeInHierarchy)
+        {
+            system.SetActive(false);
+        }
+        else
+        {
+            system.SetActive(true);
+        }
     }
 
     public void OffTheSystem()
     {
         system.SetActive(false);
     }
+
     void Setup()
     {
         for (int j = 0; j < panelBoxList.Count; j++) // Active false all the panels

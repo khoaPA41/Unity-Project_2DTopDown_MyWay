@@ -16,6 +16,7 @@ public class PlayerUseToolState : PlayerBaseState
     public override void Enter()
     {
         AnimationBaseType();
+        Eat();
         if (type == "Seed")
         {
             GameObject seed = playerStateMachine.PlayerFarmer.PlantSeed(name, playerStateMachine.prevDirection, playerStateMachine.itemIndex);
@@ -32,7 +33,11 @@ public class PlayerUseToolState : PlayerBaseState
             playerStateMachine.ReturnLocomotion();
         }
 
-        UpdateColliderByDirection();
+        if (type != "Food")
+        {
+            playerStateMachine.HungerBar.SubstractHungerBar();
+            UpdateColliderByDirection();
+        }
     }
 
     public override void PhysicTick(float fixedDeltatime)
@@ -71,6 +76,15 @@ public class PlayerUseToolState : PlayerBaseState
         if (type != "" && (type == "Axe" || type == "Crush" || type == "Sword" || type == "Watering"))
         {
             playerStateMachine.Animator.CrossFadeInFixedTime(type, playerStateMachine.AnimatorCrossFade);
+        }
+    }
+
+    void Eat()
+    {
+        if (type == "Food")
+        {
+            Inventories.Instance.inventoriesList[playerStateMachine.itemIndex].itemData.UseItem(playerStateMachine.gameObject);
+            return;
         }
     }
 

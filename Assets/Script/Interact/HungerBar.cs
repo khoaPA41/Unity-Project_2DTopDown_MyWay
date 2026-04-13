@@ -4,13 +4,7 @@ public class HungerBar : Status
 {
     [SerializeField] Health health;
     [SerializeField] float healthDecrease;
-    [SerializeField] float hungerValueDecrease;
-
-    //void Start()
-    //{
-    //    health = GetComponent<Health>();
-    //}
-
+    public float hungerValueDecrease;
 
     void Update()
     {
@@ -19,12 +13,17 @@ public class HungerBar : Status
             health.currentValue -= healthDecrease;
         }
 
-        valueImage.fillAmount = currentValue / maxValue;
-        currentValue -= hungerValueDecrease * Time.deltaTime;
+        valueImage.fillAmount = (currentValue / maxValue);
+
     }
 
     public void AddHungerBar(int amount)
     {
         currentValue = Mathf.Min(currentValue + amount, 100);
+    }
+
+    public void SubstractHungerBar()
+    {
+        currentValue -= hungerValueDecrease * Time.deltaTime * speedToFill;
     }
 }

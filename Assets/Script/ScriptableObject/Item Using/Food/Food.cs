@@ -8,6 +8,7 @@ public class Food : ValueItem
 
     public override void UseItem(GameObject targetObject)
     {
-        base.UseItem(targetObject);
+        HungerBar hungerBar = targetObject.GetComponent<HungerBar>();
+        hungerBar.AddHungerBar(satiety);
     }
 }
