@@ -19,6 +19,8 @@ TagManager:
   - Seed
   - ItemPool
   - Water
+  - House
+  - Farm
   layers:
   - Default
   - TransparentFX

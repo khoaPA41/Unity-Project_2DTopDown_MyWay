@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {
-    [Range(1, 50), SerializeField] int poolsize;
+    [Range(1, 100), SerializeField] int poolsize;
 
     [field: SerializeField] public List<PooledObject> poolObjectList { get; private set; }
 
@@ -69,6 +69,23 @@ public class ObjectPooling : MonoBehaviour
         return nextInstance;
     }
 
+    //int quantity
+    public void GetObjectPooled(Vector2 position)
+    {
+        //if (poolObjectList.Count == 0) return;
+
+        //for (int i = 0; i < quantity; i++)
+        //{
+
+        //}
+
+        foreach (var pooledObject in poolObjectList)
+        {
+            PooledObject nextInstance = poolObjectDictionaries[pooledObject.name].Pop();
+            nextInstance.transform.position = position;
+            nextInstance.gameObject.SetActive(true);
+        }
+    }
 
     public void ReturnToPool(PooledObject objectPool)
     {

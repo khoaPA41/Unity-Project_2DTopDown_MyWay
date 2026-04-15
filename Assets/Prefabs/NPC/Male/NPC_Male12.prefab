@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 910144441102060743, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: <AnimatorDamping>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 910144441102060743, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: <AnimatorCrossFade>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1576298932620064773, guid: 1c89ab9cde109e341b3299db30a27ae6,
         type: 3}
       propertyPath: m_Name
@@ -77,5 +87,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1576298932620064773, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4487846585870813868}
   m_SourcePrefab: {fileID: 100100000, guid: 1c89ab9cde109e341b3299db30a27ae6, type: 3}
+--- !u!1 &3645626333487277181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1576298932620064773, guid: 1c89ab9cde109e341b3299db30a27ae6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2844021320767036536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4487846585870813868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645626333487277181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4ae8cfc3debf54c8d0bce70859456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PooledObject

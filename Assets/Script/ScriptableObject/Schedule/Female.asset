@@ -13,12 +13,7 @@ MonoBehaviour:
   m_Name: Female
   m_EditorClassIdentifier: Assembly-CSharp::Schedule
   dailyList:
-  - hour: 6
-    task: 7
-    targetTransform: {fileID: 0}
   - hour: 7
     task: 1
-    targetTransform: {fileID: 0}
-  - hour: 9
+  - hour: 7
     task: 6
-    targetTransform: {fileID: 0}

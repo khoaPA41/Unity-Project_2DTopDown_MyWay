@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class NPCGoOutState : NPCBaseState
 {
+    int LocomotionAnimationHash = Animator.StringToHash("Locomotion");
     public NPCGoOutState(NPCStateMachine nPCStateMachine) : base(nPCStateMachine)
     {
     }

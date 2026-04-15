@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8759693375102112919}
   - component: {fileID: 910144441102060743}
   - component: {fileID: 8518196037327596823}
+  - component: {fileID: -6371808386632039069}
   m_Layer: 0
   m_Name: NPC_Male1
   m_TagString: Untagged
@@ -226,16 +227,11 @@ MonoBehaviour:
   <Speed>k__BackingField: 4
   <SkinWidth>k__BackingField: 0.1
   <Animator>k__BackingField: {fileID: 1670982708284755702}
-  <AnimatorCrossFade>k__BackingField: 0
-  <AnimatorDamping>k__BackingField: 0
-  <XStartPos>k__BackingField: 0
-  <XEndPos>k__BackingField: 0
-  <YStartPos>k__BackingField: 0
-  <YEndPos>k__BackingField: 0
+  <AnimatorCrossFade>k__BackingField: 0.1
+  <AnimatorDamping>k__BackingField: 0.1
   <ChasingRange>k__BackingField: 0
   <AttackRange>k__BackingField: 0
-  <CountTimePatrol>k__BackingField: 1
-  <CountTimeIdle>k__BackingField: 1
+  <PooledObject>k__BackingField: {fileID: -6371808386632039069}
 --- !u!114 &8518196037327596823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,3 +246,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BrainController
   stateMachine: {fileID: 910144441102060743}
   npcSchedule: {fileID: 0}
+--- !u!114 &-6371808386632039069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576298932620064773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4ae8cfc3debf54c8d0bce70859456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PooledObject

@@ -11,20 +11,34 @@ public class BrainController : MonoBehaviour
 
     NPCTask currentTask = NPCTask.Idle;
 
+    Transform famerTransform;
+    Transform homeTransform;
+
     Stack<State> states;
 
     void Start()
     {
         states = new Stack<State>();
-        GameManagers.Instance.OnHourAction += OnHourChanged;
+        homeTransform = this.transform;
+        famerTransform = GameObject.FindGameObjectWithTag("Farm").transform;
 
     }
 
     void OnEnable()
     {
-
+        if (WorldTime.Instance != null)
+        {
+            WorldTime.Instance.OnHourAction += OnHourChanged;
+        }
     }
 
+    void OnDisable()
+    {
+        if (WorldTime.Instance != null)
+        {
+            WorldTime.Instance.OnHourAction -= OnHourChanged;
+        }
+    }
 
     public void OnHourChanged()
     {
@@ -33,7 +47,7 @@ public class BrainController : MonoBehaviour
             return;
         }
 
-        NPCTask scheduleTask = GetTask(GameManagers.Instance.hour);
+        NPCTask scheduleTask = GetTask(WorldTime.Instance.hour);
 
         if (scheduleTask != currentTask)
         {
@@ -41,7 +55,7 @@ public class BrainController : MonoBehaviour
             switch (currentTask)
             {
                 case NPCTask.Famer:
-                    stateMachine.SwitchState(new NPCFarmerState(stateMachine));
+                    stateMachine.SwitchState(new NPCFarmerState(stateMachine, famerTransform));
                     break;
                 case NPCTask.GoOut:
                     stateMachine.SwitchState(new NPCGoOutState(stateMachine));

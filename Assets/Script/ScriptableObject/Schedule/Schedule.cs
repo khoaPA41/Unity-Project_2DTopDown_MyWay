@@ -20,7 +20,6 @@ public class ScheduleEvent
     [Range(0, 23)]
     public int hour;
     public NPCTask task;
-    public Transform targetTransform;
 }
 
 [CreateAssetMenu(fileName = "Schedule", menuName = "Scriptable Objects/Schedule")]
