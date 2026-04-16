@@ -24,7 +24,10 @@ public class NPCStateMachine : StateMachine
     [field: SerializeField] public PooledObject PooledObject { get; private set; }
 
     [Header("Schedule")]
+    [field: SerializeField] public BrainController BrainController { get; private set; }
     [field: SerializeField] public Schedule Schedule { get; private set; }
+    [field: SerializeField] public float HarvestTime { get; private set; } = 3f;
+
 
     public PlayerStateMachine Player { get; private set; }
 

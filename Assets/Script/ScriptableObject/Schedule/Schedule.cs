@@ -14,6 +14,8 @@ public enum NPCTask
     GoOut
 }
 
+
+
 [Serializable]
 public class ScheduleEvent
 {

@@ -4,41 +4,66 @@ public class NPCFarmerState : NPCBaseState
 {
     int LocomotionAnimationHash = Animator.StringToHash("Locomotion");
 
-    Transform target;
-    public NPCFarmerState(NPCStateMachine nPCStateMachine, Transform target) : base(nPCStateMachine)
+    SpawnAfterDestroy targetCrop = null;
+
+    float countTimeHarvest = 0;
+    public NPCFarmerState(NPCStateMachine nPCStateMachine) : base(nPCStateMachine)
     {
-        this.target = target;
     }
 
     public override void Enter()
     {
         nPCStateMachine.Animator.CrossFadeInFixedTime(LocomotionAnimationHash, nPCStateMachine.AnimatorCrossFade);
-        nPCStateMachine.NavMeshAgent.isStopped = false;
-        nPCStateMachine.NavMeshAgent.SetDestination(target.position);
+        FindNextVegetable();
     }
 
     public override void Tick(float deltaTime)
     {
-        UpdateAnimation();
-
-        if (!nPCStateMachine.NavMeshAgent.pathPending && nPCStateMachine.NavMeshAgent.remainingDistance <= nPCStateMachine.NavMeshAgent.stoppingDistance)
+        if (targetCrop == null)
         {
-            if (!nPCStateMachine.NavMeshAgent.hasPath || nPCStateMachine.NavMeshAgent.velocity.sqrMagnitude == 0)
+            FindNextVegetable();
+            return;
+        }
+
+        float distance = Vector2.Distance(nPCStateMachine.transform.position, targetCrop.transform.position);
+
+        if (distance <= nPCStateMachine.NavMeshAgent.stoppingDistance + 0.2f)
+        {
+            nPCStateMachine.NavMeshAgent.isStopped = true;
+            countTimeHarvest += deltaTime;
+            if (countTimeHarvest >= nPCStateMachine.HarvestTime)
             {
-                Debug.Log("Farm");
+                targetCrop.Harvested();
+                targetCrop = null;
+                countTimeHarvest = 0f;
+                nPCStateMachine.SwitchState(new NPCFarmerState(nPCStateMachine));
             }
         }
+        else
+        {
+            nPCStateMachine.NavMeshAgent.isStopped = false;
+        }
+
+        UpdateAnimation();
+
+        //if (!nPCStateMachine.NavMeshAgent.pathPending && nPCStateMachine.NavMeshAgent.remainingDistance <= nPCStateMachine.NavMeshAgent.stoppingDistance)
+        //{
+        //    if (!nPCStateMachine.NavMeshAgent.hasPath || nPCStateMachine.NavMeshAgent.velocity.sqrMagnitude == 0)
+        //    {
+        //        Debug.Log("Farm");
+        //    }
+        //}
     }
 
-    public override void PhysicTick(float fixedDeltatime)
-    {
-        //Move(target.position, fixedDeltatime);
-    }
+
 
     public override void Exit()
     {
-        nPCStateMachine.NavMeshAgent.isStopped = true;
+        if (targetCrop != null) targetCrop.targetedBy = null;
+        nPCStateMachine.NavMeshAgent.isStopped = false;
     }
+
+
 
     void UpdateAnimation()
     {
@@ -63,5 +88,41 @@ public class NPCFarmerState : NPCBaseState
         {
             nPCStateMachine.Animator.SetFloat("MovementY", -2);
         }
+    }
+
+    void FindNextVegetable()
+    {
+        SpawnAfterDestroy bestCrop = null;
+        float minDistance = float.MaxValue;
+
+        foreach (var crop in GameManagers.Instance.vegetableList)
+        {
+            if (crop.isAvailable)
+            {
+                Debug.Log(crop);
+                float distance = Vector2.Distance(nPCStateMachine.transform.position, crop.transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    bestCrop = crop;
+                }
+            }
+        }
+
+        if (bestCrop != null)
+        {
+            targetCrop = bestCrop;
+            targetCrop.targetedBy = nPCStateMachine;
+            nPCStateMachine.NavMeshAgent.isStopped = false;
+            nPCStateMachine.NavMeshAgent.SetDestination(targetCrop.transform.position);
+        }
+        else
+        {
+            Debug.Log("Ve nha");
+        }
+    }
+
+    public override void PhysicTick(float fixedDeltatime)
+    {
     }
 }

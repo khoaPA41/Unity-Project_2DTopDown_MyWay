@@ -219,8 +219,10 @@ MonoBehaviour:
   <ChasingRange>k__BackingField: 0
   <AttackRange>k__BackingField: 0
   <PooledObject>k__BackingField: {fileID: -1942600947488342506}
+  <BrainController>k__BackingField: {fileID: -2830557828872265339}
   <Schedule>k__BackingField: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69,
     type: 2}
+  <HarvestTime>k__BackingField: 3
 --- !u!114 &-2830557828872265339
 MonoBehaviour:
   m_ObjectHideFlags: 0
