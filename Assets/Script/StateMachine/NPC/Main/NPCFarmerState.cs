@@ -67,7 +67,6 @@ public class NPCFarmerState : NPCBaseState
 
     void UpdateAnimation()
     {
-        Debug.Log(diretion);
         if (diretion.x > 0)
         {
             nPCStateMachine.Animator.SetFloat("MovementX", 2);
@@ -118,7 +117,7 @@ public class NPCFarmerState : NPCBaseState
         }
         else
         {
-            Debug.Log("Ve nha");
+            nPCStateMachine.SwitchState(new NPCIdleState(nPCStateMachine));
         }
     }
 

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -2234263122504328599}
   - component: {fileID: 4990625776974653497}
   - component: {fileID: 7578101788423790853}
+  - component: {fileID: 5206670007396598764}
   m_Layer: 0
   m_Name: NPC_Female6
   m_TagString: Untagged
@@ -206,11 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f59e06983efeed45afb45f143f377e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCStateMachine
-  <Rigidbody2D>k__BackingField: {fileID: 0}
-  <BoxCollider2D>k__BackingField: {fileID: 0}
+  <Rigidbody2D>k__BackingField: {fileID: -5704363920084013459}
+  <BoxCollider2D>k__BackingField: {fileID: -5940230975647785840}
   <NavMeshAgent>k__BackingField: {fileID: 1567911801873405476, guid: 9e2f54149877f2f4a9d1fa4d9dacd93e,
     type: 3}
-  <CheckLimit>k__BackingField: {fileID: 0}
+  <CheckLimit>k__BackingField: {fileID: 5206670007396598764}
   <Speed>k__BackingField: 4
   <SkinWidth>k__BackingField: 0.1
   <Animator>k__BackingField: {fileID: 4996776095102888636}
@@ -219,7 +220,10 @@ MonoBehaviour:
   <ChasingRange>k__BackingField: 0
   <AttackRange>k__BackingField: 0
   <PooledObject>k__BackingField: {fileID: 4990625776974653497}
-  <Schedule>k__BackingField: {fileID: 0}
+  <BrainController>k__BackingField: {fileID: -2234263122504328599}
+  <Schedule>k__BackingField: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69,
+    type: 2}
+  <HarvestTime>k__BackingField: 3
 --- !u!114 &-2234263122504328599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,8 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801351e433ccdf14db21560a2941b6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrainController
-  stateMachine: {fileID: 0}
-  npcSchedule: {fileID: 0}
+  stateMachine: {fileID: 8583480928579401125}
+  npcSchedule: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69, type: 2}
 --- !u!114 &4990625776974653497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,3 +272,18 @@ NavMeshAgent:
   m_BaseOffset: 0.24
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5206670007396598764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649513095481725891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b356e8b2980acc14680969ca11ee7240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckLimit
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 384

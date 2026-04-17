@@ -70,7 +70,7 @@ public class ObjectPooling : MonoBehaviour
     }
 
     //int quantity
-    public void GetObjectPooled(Vector2 position)
+    public PooledObject GetObjectPooled(Vector2 position)
     {
         //if (poolObjectList.Count == 0) return;
 
@@ -78,13 +78,14 @@ public class ObjectPooling : MonoBehaviour
         //{
 
         //}
-
+        PooledObject nextInstance = null;
         foreach (var pooledObject in poolObjectList)
         {
-            PooledObject nextInstance = poolObjectDictionaries[pooledObject.name].Pop();
+            nextInstance = poolObjectDictionaries[pooledObject.name].Pop();
             nextInstance.transform.position = position;
             nextInstance.gameObject.SetActive(true);
         }
+        return nextInstance;
     }
 
     public void ReturnToPool(PooledObject objectPool)

@@ -12,23 +12,25 @@ public class BrainController : MonoBehaviour
     NPCTask currentTask = NPCTask.Idle;
 
     public GameObject[] famerObjects { get; set; }
-    Transform homeTransform;
-    Transform chopDownTransform;
+
+    public Transform homeTransform { get; set; }
+    public Transform chopDownTransform { get; set; }
 
     Stack<State> states;
 
     void Start()
     {
         states = new Stack<State>();
-        homeTransform = this.transform;
-        famerObjects = GameObject.FindGameObjectsWithTag("Vegetable");
-        chopDownTransform = GameObject.FindGameObjectWithTag("Tree").transform;
+        //homeTransform = this.transform;
+        //famerObjects = GameObject.FindGameObjectsWithTag("Vegetable");
+        //chopDownTransform = GameObject.FindGameObjectWithTag("Tree").transform;
     }
 
     void OnEnable()
     {
         if (WorldTime.Instance != null)
         {
+            //homeTransform = this.transform;
             WorldTime.Instance.OnHourAction += OnHourChanged;
         }
     }

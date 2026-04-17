@@ -7,7 +7,7 @@ public class WorldTime : MonoBehaviour
 {
     public static WorldTime Instance;
 
-    public List<Transform> npcSpawnPos;
+    public List<Transform> npcHome;
     [SerializeField] ObjectPooling objectPooling;
     [SerializeField] float minutesOneHour = 20;
 
@@ -27,7 +27,7 @@ public class WorldTime : MonoBehaviour
         Instance = this;
         foreach (var pos in GameObject.FindGameObjectsWithTag("House"))
         {
-            npcSpawnPos.Add(pos.transform);
+            npcHome.Add(pos.transform);
         }
     }
 
@@ -68,12 +68,13 @@ public class WorldTime : MonoBehaviour
 
     void SpawnNPC()
     {
-        foreach (var pos in npcSpawnPos)
+        foreach (var pos in npcHome)
         {
             float randomPercent = Random.Range(0, 100);
             if (randomPercent - percent <= 0f)
             {
-                objectPooling.GetObjectPooled(pos.position);
+                BrainController brainController = objectPooling.GetObjectPooled(pos.position).GetComponent<BrainController>();
+                brainController.homeTransform = pos;
             }
         }
     }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8368389381542282930}
   - component: {fileID: -4967919760651252250}
   - component: {fileID: -839301468574865035}
+  - component: {fileID: 3088120233053151803}
   m_Layer: 0
   m_Name: NPC_Female2
   m_TagString: Untagged
@@ -209,7 +210,7 @@ MonoBehaviour:
   <Rigidbody2D>k__BackingField: {fileID: 3399051000275075062}
   <BoxCollider2D>k__BackingField: {fileID: 8766236559039707318}
   <NavMeshAgent>k__BackingField: {fileID: -839301468574865035}
-  <CheckLimit>k__BackingField: {fileID: 0}
+  <CheckLimit>k__BackingField: {fileID: 3088120233053151803}
   <Speed>k__BackingField: 4
   <SkinWidth>k__BackingField: 0.1
   <Animator>k__BackingField: {fileID: 3884750159756668622}
@@ -218,7 +219,10 @@ MonoBehaviour:
   <ChasingRange>k__BackingField: 0
   <AttackRange>k__BackingField: 0
   <PooledObject>k__BackingField: {fileID: -4967919760651252250}
-  <Schedule>k__BackingField: {fileID: 0}
+  <BrainController>k__BackingField: {fileID: 8368389381542282930}
+  <Schedule>k__BackingField: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69,
+    type: 2}
+  <HarvestTime>k__BackingField: 3
 --- !u!114 &8368389381542282930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,8 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801351e433ccdf14db21560a2941b6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrainController
-  stateMachine: {fileID: 0}
-  npcSchedule: {fileID: 0}
+  stateMachine: {fileID: 5598070662168871624}
+  npcSchedule: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69, type: 2}
 --- !u!114 &-4967919760651252250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,3 +271,18 @@ NavMeshAgent:
   m_BaseOffset: 0.24
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3088120233053151803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790071821894097798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b356e8b2980acc14680969ca11ee7240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckLimit
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 384
