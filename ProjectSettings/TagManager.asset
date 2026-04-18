@@ -9,9 +9,6 @@ TagManager:
   - Wood
   - Enemy
   - Bullet
-  - GoldOre
-  - IronOre
-  - CopperOre
   - Tree
   - Ore
   - Tool
@@ -21,6 +18,7 @@ TagManager:
   - Water
   - House
   - Farm
+  - VegetableSpawn
   layers:
   - Default
   - TransparentFX

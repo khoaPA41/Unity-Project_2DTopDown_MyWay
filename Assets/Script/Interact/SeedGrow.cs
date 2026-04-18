@@ -13,7 +13,7 @@ public class SeedGrow : MonoBehaviour
 
     void Start()
     {
-        itemPool = GameObject.FindGameObjectWithTag("Vegetable").GetComponent<ObjectPooling>();
+        itemPool = GameObject.FindGameObjectWithTag("VegetableSpawn").GetComponent<ObjectPooling>();
     }
 
     private void OnDisable()

@@ -19,6 +19,7 @@ public class NPCFarmerState : NPCBaseState
 
     public override void Tick(float deltaTime)
     {
+        Debug.Log(nPCStateMachine.NavMeshAgent.desiredVelocity.normalized);
         if (targetCrop == null)
         {
             FindNextVegetable();
@@ -44,15 +45,8 @@ public class NPCFarmerState : NPCBaseState
             nPCStateMachine.NavMeshAgent.isStopped = false;
         }
 
-        UpdateAnimation();
-
-        //if (!nPCStateMachine.NavMeshAgent.pathPending && nPCStateMachine.NavMeshAgent.remainingDistance <= nPCStateMachine.NavMeshAgent.stoppingDistance)
-        //{
-        //    if (!nPCStateMachine.NavMeshAgent.hasPath || nPCStateMachine.NavMeshAgent.velocity.sqrMagnitude == 0)
-        //    {
-        //        Debug.Log("Farm");
-        //    }
-        //}
+        UpdateAnimation(deltaTime);
+        Flip();
     }
 
 
@@ -63,38 +57,12 @@ public class NPCFarmerState : NPCBaseState
         nPCStateMachine.NavMeshAgent.isStopped = false;
     }
 
-
-
-    void UpdateAnimation()
-    {
-        if (diretion.x > 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementX", 2);
-
-        }
-
-        if (diretion.x < 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementX", -2);
-        }
-
-        if (diretion.y > 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementY", 2);
-        }
-
-        if (diretion.y < 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementY", -2);
-        }
-    }
-
     void FindNextVegetable()
     {
         SpawnAfterDestroy bestCrop = null;
         float minDistance = float.MaxValue;
 
-        foreach (var crop in GameManagers.Instance.vegetableList)
+        foreach (var crop in WorldTime.Instance.vegetableList)
         {
             if (crop.isAvailable)
             {

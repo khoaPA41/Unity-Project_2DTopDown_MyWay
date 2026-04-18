@@ -8,6 +8,7 @@ public class WorldTime : MonoBehaviour
     public static WorldTime Instance;
 
     public List<Transform> npcHome;
+    public List<Transform> farmPos;
     [SerializeField] ObjectPooling objectPooling;
     [SerializeField] float minutesOneHour = 20;
 
@@ -18,17 +19,32 @@ public class WorldTime : MonoBehaviour
     public int hour = 6;
     public int day = 0;
 
-    bool isGoOut = false;
+    public bool isGoOut = false;
 
     float percent = 10f;
+
+    public List<SpawnAfterDestroy> vegetableList { get; set; }
 
     void Awake()
     {
         Instance = this;
+        SetupPos();
+
+    }
+    void Start()
+    {
+
+
+    }
+
+    void SetupPos()
+    {
+        vegetableList = new List<SpawnAfterDestroy>();
         foreach (var pos in GameObject.FindGameObjectsWithTag("House"))
         {
             npcHome.Add(pos.transform);
         }
+        FindVegetable();
     }
 
     void OnEnable()
@@ -38,7 +54,7 @@ public class WorldTime : MonoBehaviour
 
     void Update()
     {
-        if (hour >= 5 && !isGoOut)
+        if (hour == 5 && !isGoOut)
         {
             isGoOut = true;
             GoOutAction?.Invoke();
@@ -64,6 +80,19 @@ public class WorldTime : MonoBehaviour
         }
 
         OnHourAction?.Invoke();
+    }
+
+    void FindVegetable()
+    {
+        SpawnAfterDestroy[] vegetables = FindObjectsByType<SpawnAfterDestroy>(FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
+
+        foreach (var vegetable in vegetables)
+        {
+            if (vegetable.gameObject.CompareTag("Vegetable"))
+            {
+                vegetableList.Add(vegetable);
+            }
+        }
     }
 
     void SpawnNPC()

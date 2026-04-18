@@ -11,7 +11,7 @@ public class BrainController : MonoBehaviour
 
     NPCTask currentTask = NPCTask.Idle;
 
-    public GameObject[] famerObjects { get; set; }
+    //public GameObject[] famerObjects { get; set; }
 
     public Transform homeTransform { get; set; }
     public Transform chopDownTransform { get; set; }
@@ -21,16 +21,12 @@ public class BrainController : MonoBehaviour
     void Start()
     {
         states = new Stack<State>();
-        //homeTransform = this.transform;
-        //famerObjects = GameObject.FindGameObjectsWithTag("Vegetable");
-        //chopDownTransform = GameObject.FindGameObjectWithTag("Tree").transform;
     }
 
     void OnEnable()
     {
         if (WorldTime.Instance != null)
         {
-            //homeTransform = this.transform;
             WorldTime.Instance.OnHourAction += OnHourChanged;
         }
     }
@@ -58,9 +54,11 @@ public class BrainController : MonoBehaviour
             switch (currentTask)
             {
                 case NPCTask.Famer:
+                    //isGoOut = true;
                     stateMachine.SwitchState(new NPCFarmerState(stateMachine));
                     break;
                 case NPCTask.GoOut:
+                    //isGoOut = true;
                     stateMachine.SwitchState(new NPCGoOutState(stateMachine));
                     break;
                 case NPCTask.GoHome:

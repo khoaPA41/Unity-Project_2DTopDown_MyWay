@@ -7,9 +7,9 @@ public class SpawnAfterDestroy : MonoBehaviour
     [SerializeField] int durability = 20;
 
     [Header("For NPC")]
-    public bool isHarvested { get; set; } = false;
+    //public bool isHarvested { get; set; } = false;
     public NPCStateMachine targetedBy { get; set; } = null;
-    public bool isAvailable => gameObject.activeInHierarchy && !isHarvested && targetedBy == null;
+    public bool isAvailable => gameObject.activeInHierarchy && targetedBy == null;
 
 
     PooledObject pooledObject;
@@ -48,7 +48,7 @@ public class SpawnAfterDestroy : MonoBehaviour
 
     public void Harvested()
     {
-        isHarvested = true;
+        //isHarvested = true;
         currentDurability = 0;
     }
 }

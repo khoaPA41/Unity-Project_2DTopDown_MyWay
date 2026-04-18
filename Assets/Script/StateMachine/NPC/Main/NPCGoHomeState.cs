@@ -4,7 +4,6 @@ public class NPCGoHomeState : NPCBaseState
 {
     int LocomotionAnimationHash = Animator.StringToHash("Locomotion");
 
-    TargetedBy targetHome = null;
     public NPCGoHomeState(NPCStateMachine nPCStateMachine) : base(nPCStateMachine)
     {
     }
@@ -24,11 +23,14 @@ public class NPCGoHomeState : NPCBaseState
         {
             if (!nPCStateMachine.NavMeshAgent.hasPath || nPCStateMachine.NavMeshAgent.velocity.sqrMagnitude == 0f)
             {
-                Debug.Log("Ve nha roi!");
-                nPCStateMachine.SwitchState(new NPCIdleState(nPCStateMachine));
+                WorldTime.Instance.isGoOut = false;
+                nPCStateMachine.PooledObject.Release();
+                //nPCStateMachine.SwitchState(new NPCIdleState(nPCStateMachine));
+
             }
         }
-        UpdateAnimation();
+        UpdateAnimation(deltaTime);
+        Flip();
     }
 
     public override void PhysicTick(float fixedDeltatime)
@@ -38,30 +40,7 @@ public class NPCGoHomeState : NPCBaseState
 
     public override void Exit()
     {
-
+        nPCStateMachine.NavMeshAgent.isStopped = true;
     }
 
-    void UpdateAnimation()
-    {
-        if (diretion.x > 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementX", 2);
-
-        }
-
-        if (diretion.x < 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementX", -2);
-        }
-
-        if (diretion.y > 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementY", 2);
-        }
-
-        if (diretion.y < 0)
-        {
-            nPCStateMachine.Animator.SetFloat("MovementY", -2);
-        }
-    }
 }
