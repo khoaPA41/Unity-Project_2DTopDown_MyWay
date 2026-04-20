@@ -13,13 +13,13 @@ public class NPCFarmerState : NPCBaseState
 
     public override void Enter()
     {
+        Debug.Log("Farmer");
         nPCStateMachine.Animator.CrossFadeInFixedTime(LocomotionAnimationHash, nPCStateMachine.AnimatorCrossFade);
         FindNextVegetable();
     }
 
     public override void Tick(float deltaTime)
     {
-        Debug.Log(nPCStateMachine.NavMeshAgent.desiredVelocity.normalized);
         if (targetCrop == null)
         {
             FindNextVegetable();

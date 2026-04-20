@@ -54,12 +54,10 @@ public class BrainController : MonoBehaviour
             switch (currentTask)
             {
                 case NPCTask.Famer:
-                    //isGoOut = true;
                     stateMachine.SwitchState(new NPCFarmerState(stateMachine));
                     break;
                 case NPCTask.GoOut:
-                    //isGoOut = true;
-                    stateMachine.SwitchState(new NPCGoOutState(stateMachine));
+                    stateMachine.SwitchState(new NPCIdleState(stateMachine));
                     break;
                 case NPCTask.GoHome:
                     stateMachine.SwitchState(new NPCGoHomeState(stateMachine));

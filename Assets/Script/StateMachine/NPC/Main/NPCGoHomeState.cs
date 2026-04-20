@@ -10,6 +10,7 @@ public class NPCGoHomeState : NPCBaseState
 
     public override void Enter()
     {
+        Debug.Log("Home");
         nPCStateMachine.Animator.CrossFadeInFixedTime(LocomotionAnimationHash, nPCStateMachine.AnimatorCrossFade);
         nPCStateMachine.NavMeshAgent.isStopped = false;
         Debug.Log(nPCStateMachine.BrainController.homeTransform.position);
@@ -24,9 +25,8 @@ public class NPCGoHomeState : NPCBaseState
             if (!nPCStateMachine.NavMeshAgent.hasPath || nPCStateMachine.NavMeshAgent.velocity.sqrMagnitude == 0f)
             {
                 WorldTime.Instance.isGoOut = false;
+                nPCStateMachine.NavMeshAgent.isStopped = true;
                 nPCStateMachine.PooledObject.Release();
-                //nPCStateMachine.SwitchState(new NPCIdleState(nPCStateMachine));
-
             }
         }
         UpdateAnimation(deltaTime);
@@ -40,7 +40,7 @@ public class NPCGoHomeState : NPCBaseState
 
     public override void Exit()
     {
-        nPCStateMachine.NavMeshAgent.isStopped = true;
+
     }
 
 }

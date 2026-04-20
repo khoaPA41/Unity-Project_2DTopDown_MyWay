@@ -102,7 +102,9 @@ public class WorldTime : MonoBehaviour
             float randomPercent = Random.Range(0, 100);
             if (randomPercent - percent <= 0f)
             {
-                BrainController brainController = objectPooling.GetObjectPooled(pos.position).GetComponent<BrainController>();
+
+                BrainController brainController = objectPooling.GetObjectPooled("NPC_Female1", pos.position).GetComponent<BrainController>();
+                //BrainController brainController = objectPooling.GetObjectPooled(pos.position).GetComponent<BrainController>();
                 brainController.homeTransform = pos;
             }
         }
