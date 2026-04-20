@@ -11,7 +11,7 @@ public class NPCIdleState : NPCBaseState
     {
         Debug.Log("Idle");
         nPCStateMachine.Animator.CrossFadeInFixedTime(LocomotionAnimationHash, nPCStateMachine.AnimatorCrossFade);
-        //nPCStateMachine.NavMeshAgent.isStopped = true;
+        nPCStateMachine.NavMeshAgent.isStopped = true;
     }
 
     public override void Tick(float deltaTime)

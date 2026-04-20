@@ -17,8 +17,6 @@ public class NPCStateMachine : StateMachine
     [field: SerializeField] public float AnimatorDamping { get; private set; }
 
     [Header("Movement")]
-    [field: SerializeField] public float ChasingRange { get; private set; }
-    [field: SerializeField] public float AttackRange { get; private set; }
 
     [Header("Pooled Object")]
     [field: SerializeField] public PooledObject PooledObject { get; private set; }

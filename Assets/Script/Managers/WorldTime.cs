@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+
+
+enum Village
+{
+    NPC_Female,
+    NPC_Male
+}
+
+
+
 public class WorldTime : MonoBehaviour
 {
     public static WorldTime Instance;
@@ -24,6 +34,9 @@ public class WorldTime : MonoBehaviour
     float percent = 10f;
 
     public List<SpawnAfterDestroy> vegetableList { get; set; }
+
+    int femaleType = 9; // Add 1 for random
+    int maleType = 17; // Add 1 for random
 
     void Awake()
     {
@@ -102,11 +115,29 @@ public class WorldTime : MonoBehaviour
             float randomPercent = Random.Range(0, 100);
             if (randomPercent - percent <= 0f)
             {
-
-                BrainController brainController = objectPooling.GetObjectPooled("NPC_Female1", pos.position).GetComponent<BrainController>();
-                //BrainController brainController = objectPooling.GetObjectPooled(pos.position).GetComponent<BrainController>();
-                brainController.homeTransform = pos;
+                string villageName = RandomVillageGender();
+                if (villageName != "")
+                {
+                    BrainController brainController = objectPooling.GetObjectPooled(villageName, pos.position).gameObject.GetComponent<BrainController>();
+                    brainController.homeTransform = pos;
+                }
             }
         }
+    }
+
+    string RandomVillageGender()
+    {
+        int randomGenderByNum = Random.Range(1, 11);
+
+        if (randomGenderByNum % 2 == 0)
+        {
+            string female = Village.NPC_Female.ToString();
+            int typeNumber = Random.Range(1, femaleType);
+            string type = typeNumber.ToString();
+            Debug.Log("Type: " + type);
+            Debug.Log(string.Concat(female, type));
+            return string.Concat(female, type);
+        }
+        return "";
     }
 }

@@ -209,16 +209,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCStateMachine
   <Rigidbody2D>k__BackingField: {fileID: -5704363920084013459}
   <BoxCollider2D>k__BackingField: {fileID: -5940230975647785840}
-  <NavMeshAgent>k__BackingField: {fileID: 1567911801873405476, guid: 9e2f54149877f2f4a9d1fa4d9dacd93e,
-    type: 3}
+  <NavMeshAgent>k__BackingField: {fileID: 7578101788423790853}
   <CheckLimit>k__BackingField: {fileID: 5206670007396598764}
   <Speed>k__BackingField: 4
   <SkinWidth>k__BackingField: 0.1
   <Animator>k__BackingField: {fileID: 4996776095102888636}
   <AnimatorCrossFade>k__BackingField: 0.1
   <AnimatorDamping>k__BackingField: 0.1
-  <ChasingRange>k__BackingField: 0
-  <AttackRange>k__BackingField: 0
   <PooledObject>k__BackingField: {fileID: 4990625776974653497}
   <BrainController>k__BackingField: {fileID: -2234263122504328599}
   <Schedule>k__BackingField: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69,
@@ -260,7 +257,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.16
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

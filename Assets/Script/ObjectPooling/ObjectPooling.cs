@@ -69,25 +69,6 @@ public class ObjectPooling : MonoBehaviour
         return nextInstance;
     }
 
-    //int quantity
-    public PooledObject GetObjectPooled(Vector2 position)
-    {
-        //if (poolObjectList.Count == 0) return;
-
-        //for (int i = 0; i < quantity; i++)
-        //{
-
-        //}
-        PooledObject nextInstance = null;
-        foreach (var pooledObject in poolObjectList)
-        {
-            nextInstance = poolObjectDictionaries[pooledObject.name].Pop();
-            nextInstance.transform.position = position;
-            nextInstance.gameObject.SetActive(true);
-        }
-        return nextInstance;
-    }
-
     public void ReturnToPool(PooledObject objectPool)
     {
         if (!poolObjectDictionaries.ContainsKey(objectPool.name))

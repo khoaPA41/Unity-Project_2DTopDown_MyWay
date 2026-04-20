@@ -35,7 +35,6 @@ public class PlayerFarmer : MonoBehaviour
     {
         if (groundMap.HasTile(cellPos))
         {
-            Debug.Log("Plant Succesfully");
             PooledObject seedPoolObject = getSeed.GetObjectPooled(seed, plantPos);
             Inventories.Instance.inventoriesList[index].itemData.UseItem(seedPoolObject.gameObject);
             Inventories.Instance.SubtractItem(index);
