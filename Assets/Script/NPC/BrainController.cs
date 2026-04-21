@@ -7,7 +7,7 @@ public class BrainController : MonoBehaviour
 {
     [SerializeField] NPCStateMachine stateMachine;
 
-    [SerializeField] Schedule npcSchedule;
+    [field: SerializeField] public Schedule npcSchedule { get; private set; }
 
     NPCTask currentTask = NPCTask.Idle;
 
@@ -55,6 +55,9 @@ public class BrainController : MonoBehaviour
             {
                 case NPCTask.Famer:
                     stateMachine.SwitchState(new NPCFarmerState(stateMachine));
+                    break;
+                case NPCTask.ChopDown:
+                    stateMachine.SwitchState(new NPCChopdownState(stateMachine));
                     break;
                 case NPCTask.GoOut:
                     stateMachine.SwitchState(new NPCIdleState(stateMachine));

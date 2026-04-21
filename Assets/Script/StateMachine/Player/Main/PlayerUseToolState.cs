@@ -23,7 +23,6 @@ public class PlayerUseToolState : PlayerBaseState
             playerStateMachine.toolName = "";
             playerStateMachine.toolType = "";
         }
-
     }
 
     public override void Tick(float deltaTime)

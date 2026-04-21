@@ -34,6 +34,8 @@ public class WorldTime : MonoBehaviour
     float percent = 10f;
 
     public List<SpawnAfterDestroy> vegetableList { get; set; }
+    public List<SpawnAfterDestroy> treeList { get; set; }
+
 
     int femaleType = 9; // Add 1 for random
     int maleType = 17; // Add 1 for random
@@ -53,11 +55,16 @@ public class WorldTime : MonoBehaviour
     void SetupPos()
     {
         vegetableList = new List<SpawnAfterDestroy>();
+        treeList = new List<SpawnAfterDestroy>();
+
         foreach (var pos in GameObject.FindGameObjectsWithTag("House"))
         {
             npcHome.Add(pos.transform);
         }
-        FindVegetable();
+
+
+        FindObject("Vegetable", vegetableList);
+        FindObject("Tree", treeList);
     }
 
     void OnEnable()
@@ -95,15 +102,15 @@ public class WorldTime : MonoBehaviour
         OnHourAction?.Invoke();
     }
 
-    void FindVegetable()
+    void FindObject(string name, List<SpawnAfterDestroy> list)
     {
         SpawnAfterDestroy[] vegetables = FindObjectsByType<SpawnAfterDestroy>(FindObjectsInactive.Include, sortMode: FindObjectsSortMode.None);
 
         foreach (var vegetable in vegetables)
         {
-            if (vegetable.gameObject.CompareTag("Vegetable"))
+            if (vegetable.gameObject.CompareTag(name))
             {
-                vegetableList.Add(vegetable);
+                list.Add(vegetable);
             }
         }
     }

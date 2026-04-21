@@ -216,12 +216,8 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 3884750159756668622}
   <AnimatorCrossFade>k__BackingField: 0.1
   <AnimatorDamping>k__BackingField: 0.1
-  <ChasingRange>k__BackingField: 0
-  <AttackRange>k__BackingField: 0
   <PooledObject>k__BackingField: {fileID: -4967919760651252250}
   <BrainController>k__BackingField: {fileID: 8368389381542282930}
-  <Schedule>k__BackingField: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69,
-    type: 2}
   <HarvestTime>k__BackingField: 3
 --- !u!114 &8368389381542282930
 MonoBehaviour:
@@ -236,7 +232,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrainController
   stateMachine: {fileID: 5598070662168871624}
-  npcSchedule: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69, type: 2}
+  <npcSchedule>k__BackingField: {fileID: 11400000, guid: 37d50fcfe509af547931bc4c6a23fc69,
+    type: 2}
 --- !u!114 &-4967919760651252250
 MonoBehaviour:
   m_ObjectHideFlags: 0

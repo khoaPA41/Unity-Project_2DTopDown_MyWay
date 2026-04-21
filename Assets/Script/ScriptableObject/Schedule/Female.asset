@@ -15,7 +15,9 @@ MonoBehaviour:
   dailyList:
   - hour: 5
     task: 7
-  - hour: 7
+  - hour: 6
     task: 1
   - hour: 9
+    task: 3
+  - hour: 12
     task: 6

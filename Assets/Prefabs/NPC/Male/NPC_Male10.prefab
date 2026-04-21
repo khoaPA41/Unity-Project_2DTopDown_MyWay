@@ -78,6 +78,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8518196037327596823, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: <npcSchedule>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 14a5f81a82692d84395f6885c1f2b9f9,
+        type: 2}
     - target: {fileID: 9153363484847336738, guid: 1c89ab9cde109e341b3299db30a27ae6,
         type: 3}
       propertyPath: m_Sprite

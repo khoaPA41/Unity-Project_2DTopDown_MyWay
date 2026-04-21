@@ -66,7 +66,6 @@ public class NPCFarmerState : NPCBaseState
         {
             if (crop.isAvailable)
             {
-                Debug.Log(crop);
                 float distance = Vector2.Distance(nPCStateMachine.transform.position, crop.transform.position);
                 if (distance < minDistance)
                 {

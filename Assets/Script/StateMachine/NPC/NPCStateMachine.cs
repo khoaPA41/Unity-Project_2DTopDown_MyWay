@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class NPCStateMachine : StateMachine
 {
     [Header("Physics")]
@@ -23,7 +24,6 @@ public class NPCStateMachine : StateMachine
 
     [Header("Schedule")]
     [field: SerializeField] public BrainController BrainController { get; private set; }
-    [field: SerializeField] public Schedule Schedule { get; private set; }
     [field: SerializeField] public float HarvestTime { get; private set; } = 3f;
 
 
