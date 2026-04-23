@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4429056295154076161}
   - component: {fileID: 7449635486009900096}
   - component: {fileID: 3884750159756668622}
-  - component: {fileID: 8766236559039707318}
+  - component: {fileID: -7165598909140733191}
   - component: {fileID: 3399051000275075062}
   - component: {fileID: 5598070662168871624}
   - component: {fileID: 8368389381542282930}
@@ -122,7 +122,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &8766236559039707318
+--- !u!61 &-7165598909140733191
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +156,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.014736533, y: 0.006407261}
+  m_Offset: {x: -0.009132862, y: 0.006323099}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -166,7 +166,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.11881328, y: 0.3287897}
+  m_Size: {x: 0.14155865, y: 0.33527946}
   m_EdgeRadius: 0
 --- !u!50 &3399051000275075062
 Rigidbody2D:
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCStateMachine
   <Rigidbody2D>k__BackingField: {fileID: 3399051000275075062}
-  <BoxCollider2D>k__BackingField: {fileID: 8766236559039707318}
+  <BoxCollider2D>k__BackingField: {fileID: 0}
   <NavMeshAgent>k__BackingField: {fileID: -839301468574865035}
   <CheckLimit>k__BackingField: {fileID: 3088120233053151803}
   <Speed>k__BackingField: 4
@@ -255,17 +255,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 8790071821894097798}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.16
+  m_Radius: 0.06
   m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.48
-  m_BaseOffset: 0.24
+  m_Height: 0.34
+  m_BaseOffset: 0.16
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3088120233053151803

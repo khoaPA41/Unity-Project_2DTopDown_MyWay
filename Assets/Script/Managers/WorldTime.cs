@@ -38,7 +38,7 @@ public class WorldTime : MonoBehaviour
 
 
     int femaleType = 9; // Add 1 for random
-    int maleType = 17; // Add 1 for random
+    int maleType = 7; // Add 1 for random
 
     void Awake()
     {
@@ -135,16 +135,22 @@ public class WorldTime : MonoBehaviour
     string RandomVillageGender()
     {
         int randomGenderByNum = Random.Range(1, 11);
+        string gender;
+        int typeNumber;
+        string type;
 
         if (randomGenderByNum % 2 == 0)
         {
-            string female = Village.NPC_Female.ToString();
-            int typeNumber = Random.Range(1, femaleType);
-            string type = typeNumber.ToString();
-            Debug.Log("Type: " + type);
-            Debug.Log(string.Concat(female, type));
-            return string.Concat(female, type);
+            gender = Village.NPC_Female.ToString();
+            typeNumber = Random.Range(1, femaleType);
+            type = typeNumber.ToString();
         }
-        return "";
+        else
+        {
+            gender = Village.NPC_Male.ToString();
+            typeNumber = Random.Range(1, maleType);
+            type = typeNumber.ToString();
+        }
+        return string.Concat(gender, type);
     }
 }

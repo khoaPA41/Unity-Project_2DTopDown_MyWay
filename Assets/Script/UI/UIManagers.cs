@@ -13,6 +13,7 @@ public class UIManagers : MonoBehaviour
     [Header("Inventory Script")]
     [SerializeField] Inventories inventories;
 
+
     [Header("Scroll View Panel")]
     [SerializeField] GameObject content;
 
@@ -29,6 +30,16 @@ public class UIManagers : MonoBehaviour
     [Header("Hotbar UI")]
     [SerializeField] List<GameObject> hotbarObject;
 
+    [Header("Formula Scriptable Object")]
+    [SerializeField] List<RecipeData> recipeDatas;
+
+    [Header("Craft UI")]
+    [SerializeField] List<GameObject> panelformulaList; // Book Of Formula panel
+
+    [SerializeField] List<GameObject> fomulaBoxList;   // Book Of Formula box
+
+    [SerializeField] List<GameObject> craftBox;       // Craft Box
+
     [Header("Input")]
     [SerializeField] InputReader input;
     int currentPanelIndex = 0;
@@ -42,6 +53,7 @@ public class UIManagers : MonoBehaviour
     {
         Setup();
         UpdateInventoryUI();
+        UpdateFormulaBook();
         inventories.UpdateUIAction += UpdateInventoryUI;
         //system.SetActive(false);
         input.OpenUIAction += ActiveUISystem;
@@ -168,5 +180,38 @@ public class UIManagers : MonoBehaviour
         {
             hotbarObject[nextIndex].SetActive(true);
         }
+    }
+
+    public void UpdateFormulaBook()
+    {
+        for (int i = 0; i < recipeDatas.Count; i++)
+        {
+            if (recipeDatas[i].product.item != null)
+            {
+                GameObject boxObject = fomulaBoxList[i];
+
+                Image newBoxImage = boxObject.transform.GetChild(0).GetComponent<Image>();
+
+                newBoxImage.sprite = recipeDatas[i].product.item.itemSprite;
+            }
+            else
+            {
+                GameObject boxObject = box[i];
+                Image newBoxImage = boxObject.transform.GetChild(0).GetComponent<Image>();
+                newBoxImage.sprite = emptySlot;
+
+            }
+        }
+    }
+
+    public void PreviewProduct(int index)
+    {
+        foreach (var material in recipeDatas[index].itemNeeded)
+        {
+            GameObject boxObject = craftBox[material.itemPlacement];
+            Image newBoxImage = boxObject.transform.GetChild(0).GetComponent<Image>();
+            newBoxImage.sprite = material.item.itemSprite;
+        }
+        craftBox[craftBox.Count - 1].transform.GetChild(0).GetComponent<Image>().sprite = recipeDatas[index].product.item.itemSprite;
     }
 }

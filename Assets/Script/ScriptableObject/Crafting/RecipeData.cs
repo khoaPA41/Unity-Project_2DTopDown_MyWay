@@ -6,6 +6,7 @@ public struct CrafIngredient
 {
     public ValueItem item;
     public int amount;
+    public int itemPlacement;
 }
 
 

@@ -12,3 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e4a848971f5e143bcfbd611522f6db, type: 3}
   m_Name: IronSword
   m_EditorClassIdentifier: Assembly-CSharp::RecipeData
+  itemNeeded:
+  - item: {fileID: 11400000, guid: 8a27f24cd8e855c4e8ece21f4cfdd1f1, type: 2}
+    amount: 1
+    itemPlacement: 0
+  - item: {fileID: 11400000, guid: 8a27f24cd8e855c4e8ece21f4cfdd1f1, type: 2}
+    amount: 1
+    itemPlacement: 3
+  - item: {fileID: 11400000, guid: 4f3eff04183da8c48bdc652e3e9ff31c, type: 2}
+    amount: 1
+    itemPlacement: 4
+  - item: {fileID: 11400000, guid: 4f3eff04183da8c48bdc652e3e9ff31c, type: 2}
+    amount: 1
+    itemPlacement: 5
+  product:
+    item: {fileID: 11400000, guid: a4dec3e8e132ba44b90a2de8d50c4f90, type: 2}
+    amount: 1
+    itemPlacement: 0

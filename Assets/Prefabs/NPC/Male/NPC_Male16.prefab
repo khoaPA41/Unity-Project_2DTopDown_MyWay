@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 910144441102060743, guid: 1c89ab9cde109e341b3299db30a27ae6,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 910144441102060743, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
       propertyPath: <AnimatorDamping>k__BackingField
       value: 0.1
       objectReference: {fileID: 0}
@@ -78,6 +83,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4962081383363353982, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404130947328882273, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404130947328882273, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404130947328882273, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404130947328882273, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404130947328882273, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8518196037327596823, guid: 1c89ab9cde109e341b3299db30a27ae6,
         type: 3}
       propertyPath: <npcSchedule>k__BackingField
@@ -90,7 +125,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -522071583593879146, guid: 6eedc78c635734143a7981e2f563c86b,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 9153363484847336738, guid: 1c89ab9cde109e341b3299db30a27ae6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2051162051
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

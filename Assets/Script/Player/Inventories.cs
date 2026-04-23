@@ -18,6 +18,7 @@ public class Inventories : MonoBehaviour
 
     public event Action UpdateUIAction;
 
+    //public List<InventorySlot>
     void Awake()
     {
         Instance = this;
