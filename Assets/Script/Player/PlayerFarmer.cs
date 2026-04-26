@@ -37,7 +37,7 @@ public class PlayerFarmer : MonoBehaviour
         {
             PooledObject seedPoolObject = getSeed.GetObjectPooled(seed, plantPos);
             Inventories.Instance.inventoriesList[index].itemData.UseItem(seedPoolObject.gameObject);
-            Inventories.Instance.SubtractItem(index);
+            Inventories.Instance.SubtractItem(index, 1);
             return seedPoolObject.gameObject;
         }
         return null;

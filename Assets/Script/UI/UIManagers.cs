@@ -22,7 +22,6 @@ public class UIManagers : MonoBehaviour
 
     [Header("Box List UI")]
     [SerializeField] List<GameObject> box;
-    [SerializeField] Sprite emptySlot;
 
     [Header("Panel Box List")]
     [SerializeField] List<GameObject> panelBoxList;
@@ -40,9 +39,15 @@ public class UIManagers : MonoBehaviour
 
     [SerializeField] List<GameObject> craftBox;       // Craft Box
 
+    [Header("Sprite For Empty Box")]
+    [SerializeField] Sprite emptySlot;
+
+
     [Header("Input")]
     [SerializeField] InputReader input;
     int currentPanelIndex = 0;
+
+    int previewProductIndex = -1;
 
     void Awake()
     {
@@ -99,28 +104,7 @@ public class UIManagers : MonoBehaviour
 
         panelBoxList[currentPanelIndex].SetActive(true); // Active true first panel
         panelQuantityText.SetText($"{currentPanelIndex + 1}/{panelBoxList.Count}");
-    }
-
-    public void PrevButton()
-    {
-        panelBoxList[currentPanelIndex].SetActive(false);
-
-        currentPanelIndex = Mathf.Max(currentPanelIndex - 1, 0);
-
-        panelBoxList[currentPanelIndex].SetActive(true);
-
-        panelQuantityText.SetText($"{currentPanelIndex + 1}/{panelBoxList.Count}");
-    }
-
-    public void NextButton()
-    {
-        panelBoxList[currentPanelIndex].SetActive(false);
-
-        currentPanelIndex = Mathf.Min(currentPanelIndex + 1, panelBoxList.Count - 1);
-
-        panelBoxList[currentPanelIndex].SetActive(true);
-
-        panelQuantityText.SetText($"{currentPanelIndex + 1}/{panelBoxList.Count}");
+        ResetCraft();
     }
 
 
@@ -204,14 +188,81 @@ public class UIManagers : MonoBehaviour
         }
     }
 
+
+    void ResetCraft()
+    {
+        foreach (var box in craftBox)
+        {
+            box.transform.GetChild(0).GetComponent<Image>().sprite = emptySlot;
+        }
+    }
+
+    /*BUTTON*/
     public void PreviewProduct(int index)
     {
-        foreach (var material in recipeDatas[index].itemNeeded)
+        ResetCraft();
+        previewProductIndex = index;
+        foreach (var material in recipeDatas[index].itemNeeded) // Loop through an item needed array
         {
             GameObject boxObject = craftBox[material.itemPlacement];
             Image newBoxImage = boxObject.transform.GetChild(0).GetComponent<Image>();
+            TextMeshProUGUI newText = boxObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             newBoxImage.sprite = material.item.itemSprite;
+            string quantityText;
+            if (Inventories.Instance.HasEnoughItem(material)) // if enough quantity
+            {
+                //quantityText = (Inventories.Instance.inventoriesList[Inventories.Instance.indexItemNeeded].stack - material.amount).ToString();
+                //newText.SetText(quantityText);
+                //newText.color = Color.white;
+                continue;
+            }
+            else
+            {
+                //(Inventories.Instance.inventoriesList[Inventories.Instance.indexItemNeeded].stack - material.amount).ToString()
+                quantityText = "Not Engouh";
+                newText.SetText(quantityText);
+                newText.color = Color.red;
+            }
+
+
         }
         craftBox[craftBox.Count - 1].transform.GetChild(0).GetComponent<Image>().sprite = recipeDatas[index].product.item.itemSprite;
     }
+
+    public void PrevButton()
+    {
+        panelBoxList[currentPanelIndex].SetActive(false);
+
+        currentPanelIndex = Mathf.Max(currentPanelIndex - 1, 0);
+
+        panelBoxList[currentPanelIndex].SetActive(true);
+
+        panelQuantityText.SetText($"{currentPanelIndex + 1}/{panelBoxList.Count}");
+    }
+
+    public void NextButton()
+    {
+        panelBoxList[currentPanelIndex].SetActive(false);
+
+        currentPanelIndex = Mathf.Min(currentPanelIndex + 1, panelBoxList.Count - 1);
+
+        panelBoxList[currentPanelIndex].SetActive(true);
+
+        panelQuantityText.SetText($"{currentPanelIndex + 1}/{panelBoxList.Count}");
+    }
+
+    public void CraftButton()
+    {
+        if (Inventories.Instance.isCanCraft)
+        {
+            Inventories.Instance.AddItem(recipeDatas[previewProductIndex].product.item, 1);
+            Inventories.Instance.SubtractItemAfterCraft(recipeDatas[previewProductIndex].itemNeeded);
+        }
+        else
+        {
+            Debug.Log("Not enough material");
+        }
+    }
+    /***************************************************************************************/
 }
+

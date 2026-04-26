@@ -18,7 +18,10 @@ public class Inventories : MonoBehaviour
 
     public event Action UpdateUIAction;
 
-    //public List<InventorySlot>
+    public Queue<int> indexItemNeeded = new Queue<int>();
+    //public int indexItemNeeded = -1;
+
+    public bool isCanCraft = true;
     void Awake()
     {
         Instance = this;
@@ -46,9 +49,9 @@ public class Inventories : MonoBehaviour
         }
     }
 
-    public void SubtractItem(int index)
+    public void SubtractItem(int index, int amount)
     {
-        int currentQuantity = inventoriesList[index].stack - 1;
+        int currentQuantity = inventoriesList[index].stack - amount;
         if (currentQuantity <= 0)
         {
             inventoriesList[index].itemData = null;
@@ -102,7 +105,6 @@ public class Inventories : MonoBehaviour
         return;
     }
 
-
     public void SwapItem(DraggableItem drag, DraggableItem drop)
     {
         mouseSlot = inventoriesList[drag.boxIndex];
@@ -110,5 +112,33 @@ public class Inventories : MonoBehaviour
         inventoriesList[drag.boxIndex] = inventoriesList[drop.boxIndex];
         inventoriesList[drop.boxIndex] = mouseSlot;
         UpdateUIAction?.Invoke();
+    }
+
+    public bool HasEnoughItem(CrafIngredient itemCheck) // Find the item
+    {
+        //indexItemNeeded = -1;
+        isCanCraft = true;
+        for (int i = 0; i < inventoriesList.Count; i++)
+        {
+            if (inventoriesList[i].itemData == itemCheck.item) // if same name
+            {
+                if (inventoriesList[i].stack - itemCheck.amount >= 0) // if enough quantity
+                {
+                    indexItemNeeded.Enqueue(i);
+                    return true;
+                }
+            }
+        }
+        isCanCraft = false;
+        return false;
+    }
+
+    public void SubtractItemAfterCraft(CrafIngredient[] itemForCraft)
+    {
+        foreach (var item in itemForCraft)
+        {
+            SubtractItem(indexItemNeeded.Dequeue(), item.amount);
+        }
+
     }
 }
